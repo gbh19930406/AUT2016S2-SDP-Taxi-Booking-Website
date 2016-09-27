@@ -1,0 +1,115 @@
+<!DOCTYPE HTML> 
+<html>
+	<head>
+		<title>Booking Page</title>
+		<script type="text/javascript" src="booking.js"></script>
+		<style>
+			table#quote 
+			{
+				table-layout:fixed;
+			}
+			table#confirm 
+			{
+				table-layout:fixed;
+			}
+		</style>
+	</head>
+<body onload="displayDateTime();">
+	<form>
+	<center><h1><marquee behavior="alternate" scrollamount=16 bgcolor="yellow" loop="-1" width="100%"><i><font color="blue">Booking Page</font></i></marquee></h1></center>
+	<br />
+	<table border="0" id="quote" align="center" width="100%">
+	<tr align="left" valign="middle">
+	<td align="right"><strong>Customer Information</strong></td> 
+	<td><strong><font color='red'>Please enter the customer details below</font></strong></td>
+	<td></td>	
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Customer Name (<font color='red'>*</font>):</td>
+	<td><input type="text" name="cname" maxlength="100" title="Maxinum 100 letters" onchange="inputValidate('validation.php', 'checkName', cname.value)" onmouseover="inputValidate('validation.php', 'checkName', cname.value)" placeholder="Enter your name here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkName"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Contact Phone (<font color='red'>*</font>):</td>   
+	<td><input type="text" name="cphone" maxlength="25" title="Maxinum 25 numbers" onchange="inputValidate('validation.php', 'checkPhone', cphone.value)" onmouseover="inputValidate('validation.php', 'checkPhone', cphone.value)" placeholder="Enter your phone here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkPhone"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><strong>Car Select</strong></td> 
+	<td><strong><font color='red'>Please enter the car details below</font></strong></td>
+	<td></td>	
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Car Type (<font color='red'>*</font>):</td>   
+	<td><select name="vtype" title="No Limit" onmouseup="seatInterval1 = setInterval(function(){ inputValidateOfSeat('validation.php', 'checkType', 'checkSeat', vtype.value, vseat.value); }, 1000); typeInterval = setInterval(function(){ inputValidateOfType('validation.php', 'checkType', 'checkSeat', vtype.value, vseat.value); }, 1000);" style="width: 100%; height: 22px"/><option value="">Please Select Car Type Here</option><option value="suv">SUV</option><option value="truck">Truck</option><option value="sedan">Sedan</option><option value="van">Van</option><option value="compact">Compact</option><option value="wagon">Wagon</option><option value="convertible">Convertible</option><option value="sportscar">Sports Car</option><option value="diesel">Diesel</option><option value="crossover">Crossover</option><option value="luxurycar">Luxury Car</option><option value="electric">Electric</option><option value="hatchback">Hatchback</option></select></td>
+	<td><span id="checkType"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Car Seat (<font color='red'>*</font>):</td>   
+	<td><select name="vseat" title="Maxinum is depend on car type" onmouseup="seatInterval2 = setInterval(function(){ inputValidateOfSeat('validation.php', 'checkType', 'checkSeat', vtype.value, vseat.value); }, 1000);" style="width: 100%; height: 22px"/><option value="">Please Select Car Seat Here</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option></select></td>
+	<td><span id="checkSeat"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><strong>Pick-up Address</strong></td> 
+	<td><strong><font color='red'>Please enter the pick-up details below</font></strong></td>
+	<td></td>	
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><small>Unit :</small></td>   
+	<td><input type="text" name="upunit" maxlength="5" title="Maxinum 5 digits or letters" onchange="inputValidate('validation.php', 'checkPickupUnit', upunit.value)" onmouseover="inputValidate('validation.php', 'checkPickupUnit', upunit.value)" placeholder="Enter your unit here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkPickupUnit"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><small>Street (<font color='red'>*</font>):</small></td>   
+	<td><input type="text" name="upstreet" maxlength="50" title="Maxinum 50 digits or letters" onchange="inputValidate('validation.php', 'checkPickupStreet', upstreet.value)" onmouseover="inputValidate('validation.php', 'checkPickupStreet', upstreet.value)" placeholder="Enter your street here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkPickupStreet"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><small>Suburb (<font color='red'>*</font>):</small></td>   
+	<td><input type="text" name="upsuburb" maxlength="20" title="Maxinum 20 letters" onchange="inputValidate('validation.php', 'checkPickupSuburb', upsuburb.value)" onmouseover="inputValidate('validation.php', 'checkPickupSuburb', upsuburb.value)" placeholder="Enter your suburb here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkPickupSuburb"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><small>Date & Time (<font color='red'>*</font>):</small></td>   
+	<td><input type="datetime-local" name="updatetime" title="After right now" id="localDateTime" onmousedown="updatetimeInterval = setInterval(function(){ inputValidate('validation.php', 'checkPickupDatetime', updatetime.value); }, 1000);" placeholder="Enter your date & time here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkPickupDatetime"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><strong>Drop-off Address</strong></td>
+	<td><strong><font color='red'>Please enter the drop-off details below</font></strong></td>
+	<td></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><small>Unit :</small></td>   
+	<td><input type="text" name="offunit" maxlength="5" title="Maxinum 5 digits or letters" onchange="inputValidate('validation.php', 'checkDropoffUnit', offunit.value)" onmouseover="inputValidate('validation.php', 'checkDropoffUnit', offunit.value)" placeholder="Enter your unit here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkDropoffUnit"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><small>Street (<font color='red'>*</font>):</small></td>   
+	<td><input type="text" name="offstreet" maxlength="50" title="Maxinum 50 digits or letters" onchange="inputValidate('validation.php', 'checkDropoffStreet', offstreet.value)" onmouseover="inputValidate('validation.php', 'checkDropoffStreet', offstreet.value)" placeholder="Enter your street here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkDropoffStreet"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><small>Suburb (<font color='red'>*</font>):</small></td>   
+	<td><input type="text" name="offsuburb" maxlength="20" title="Maxinum 20 letters" onchange="inputValidate('validation.php', 'checkDropoffSuburb', offsuburb.value)" onmouseover="inputValidate('validation.php', 'checkDropoffSuburb', offsuburb.value)" placeholder="Enter your suburb here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkDropoffSuburb"></span></td>
+	</tr>
+	</table>
+	<br>
+	<table border="0" id="confirm" align="center" width="50%">
+	<tr align="left" valign="middle">
+	<td align="center"><input type="button" value="Submit" onclick="stopAllIntervals(); booking('booking.php','result', cname.value, cphone.value, vtype.value, vseat.value, upunit.value, upstreet.value, upsuburb.value, updatetime.value, offunit.value, offstreet.value, offsuburb.value);" style="width: 34%; height: 24px"/></td>
+	<td align="center"><input type="reset" value="Reset" onclick="stopAllIntervals(); cleanReuslt();" style="width: 34%; height: 24px"/></td>
+	</tr>
+	</table>
+	</form>	
+	<br />
+	<br />
+	<!--a href="index.htm">Return to Home Page</a-->
+	<center>
+	<span id="result">
+		<pre></pre>
+	</span>
+	</center>
+</body>
+</html>
