@@ -1,0 +1,109 @@
+<!DOCTYPE HTML> 
+<html>
+	<head>
+		<title>Customer Register Page</title>
+		<script type="text/javascript" src="customerRegistion.js"></script>
+		<style>
+			table#quote 
+			{
+				table-layout:fixed;
+			}
+			table#confirm 
+			{
+				table-layout:fixed;
+			}
+		</style>
+	</head>
+<body onLoad = agreementTextReadOnly();displayDate();>
+	<form>
+	<center><h1><marquee behavior="alternate" scrollamount=16 bgcolor="red" loop="-1" width="100%"><i><font color="lightgreen">Customer Register Page</font></i></marquee></h1></center>
+	<br />
+	<table border="0" id="quote" align="center" width="100%">
+	<tr align="left" valign="middle">
+	<td align="right"><strong>Customer Registion Information</strong></td> 
+	<td><strong><font color='red'>Please enter the customer details below</font></strong></td>
+	<td></td>	
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Customer Name (<font color='red'>*</font>):</td>
+	<td><input type="text" name="cname" maxlength="100" title="Maxinum 100 letters" onchange="inputValidate('validationforcustomerRegistion.php', 'checkName', cname.value)" onmouseover="inputValidate('validationforcustomerRegistion.php', 'checkName', cname.value)" placeholder="Enter your name here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkName"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Contact Phone (<font color='red'>*</font>):</td>   
+	<td><input type="text" name="cphone" maxlength="25" title="Maxinum 25 numbers" onchange="inputValidate('validationforcustomerRegistion.php', 'checkPhone', cphone.value)" onmouseover="inputValidate('validationforcustomerRegistion.php', 'checkPhone', cphone.value)" placeholder="Enter your phone here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkPhone"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Gender (<font color='red'>*</font>):</td>   
+	<td><input type="radio" name="cgender" value="Male" title="Male" onchange="inputValidate('validationforcustomerRegistion.php', 'checkGender', cgender.value)" onmouseover="inputValidate('validationforcustomerRegistion.php', 'checkGender', cgender.value)" style="width: 25%; height: 16px"/>Male <input type="radio" name="cgender" value="Female" title="Female" onchange="inputValidate('validationforcustomerRegistion.php', 'checkGender', cgender.value)" onmouseover="inputValidate('validationforcustomerRegistion.php', 'checkGender', cgender.value)" style="width: 25%; height: 16px"/>Female</td>
+	<td><span id="checkGender"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Email Address (<font color='red'>*</font>):</td>
+	<td><input type="text" name="cemail" maxlength="50" title="Maxinum 50 letters and numbers in total" onchange="inputValidate('validationforcustomerRegistion.php', 'checkEmail', cemail.value)" onmouseover="inputValidate('validationforcustomerRegistion.php', 'checkEmail', cemail.value)" placeholder="Enter your email here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkEmail"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Birth Date (<font color='red'>*</font>):</td>   
+	<td><input type="date" name="cdateofbirth" id="localDate" title="Before 16 years from right now" onmousedown="inputValidate('validationforcustomerRegistion.php', 'checkBirthDatetime', cdateofbirth.value)" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkBirthDatetime"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><strong>Home Address</strong></td> 
+	<td><strong><font color='red'>Please enter the home address details below</font></strong></td>
+	<td></td>	
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Home Unit :</td>   
+	<td><input type="text" name="homeunit" maxlength="5" title="Maxinum 5 digits or letters" onchange="inputValidate('validationforcustomerRegistion.php', 'checkHomeUnit', homeunit.value)" onmouseover="inputValidate('validationforcustomerRegistion.php', 'checkHomeUnit', homeunit.value)" placeholder="Enter your home unit here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkHomeUnit"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Home Street (<font color='red'>*</font>):</td>   
+	<td><input type="text" name="homestreet" maxlength="50" title="Maxinum 50 digits or letters" onchange="inputValidate('validationforcustomerRegistion.php', 'checkHomeStreet', homestreet.value)" onmouseover="inputValidate('validationforcustomerRegistion.php', 'checkHomeStreet', homestreet.value)" placeholder="Enter your home street here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkHomeStreet"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Home Suburb (<font color='red'>*</font>):</td>   
+	<td><input type="text" name="homesuburb" maxlength="20" title="Maxinum 20 letters" onchange="inputValidate('validationforcustomerRegistion.php', 'checkHomeSuburb', homesuburb.value)" onmouseover="inputValidate('validationforcustomerRegistion.php', 'checkHomeSuburb', homesuburb.value)" placeholder="Enter your home suburb here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkHomeSuburb"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><strong>Website Login Details</strong></td>
+	<td><strong><font color='red'>Please enter the login details below</font></strong></td>
+	<td></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Login Username (<font color='red'>*</font>):</td>   
+	<td><input type="text" name="username" maxlength="20" title="Maxinum 20 letters and numbers in total" onchange="inputValidate('validationforcustomerRegistion.php', 'checkLoginUsername', username.value)" onmouseover="inputValidate('validationforcustomerRegistion.php', 'checkLoginUsername', username.value)" placeholder="Enter your login username here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkLoginUsername"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Login Password (<font color='red'>*</font>):</td>   
+	<td><input type="text" name="password" maxlength="20" title="Maxinum 20 letters and numbers in total" onchange="inputValidate('validationforcustomerRegistion.php', 'checkLoginPassword', password.value)" onmouseover="inputValidate('validationforcustomerRegistion.php', 'checkLoginPassword', password.value)" placeholder="Enter your login password here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkLoginPassword"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right"><strong>Agreement (<font color='red'>*</font>):</strong></td>   
+	<td><br><br><textarea id="agreementText" style="width: 100%; height: 100%">When you register as a customer, this agreement you must agreed and you must follow the rules showing on this agreement.</textarea><br /><input type="checkbox" name="agreement" id="agreementCheckbox" value="" title="Read agreement and tick it" onchange="checkAgreementCheckBox('checkAgreement', 'agreementCheckbox')" onmouseover="checkAgreementCheckBox('checkAgreement', 'agreementCheckbox')" style="width: 50%; height: 16px"/>I agree</td>
+	<td><span id="checkAgreement"></span></td>
+	</tr>
+	</table>
+	<br>
+	<table border="0" id="confirm" align="center" width="50%">
+	<tr align="left" valign="middle">
+	<td align="center"><input type="button" value="Confirm" onclick="registering('customerRegistion.php', 'result', cname.value, cphone.value, cgender.value, cemail.value, cdateofbirth.value, homeunit.value, homestreet.value, homesuburb.value, username.value, password.value);" style="width: 34%; height: 24px"/></td>
+	<td align="center"><input type="reset" value="Reset" onclick="cleanReuslt();" style="width: 34%; height: 24px"/></td>
+	</tr>
+	</table>
+	</form>	
+	<br />
+	<br />
+	<center>
+	<span id="result">
+		<pre></pre>
+	</span>
+	</center>
+</body>
+</html>

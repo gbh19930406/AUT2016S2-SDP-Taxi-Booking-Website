@@ -1,0 +1,54 @@
+<!DOCTYPE HTML> 
+<html>
+	<head>
+		<title>Customer Login Page</title>
+		<script type="text/javascript" src="customerLogin.js"></script>
+		<style>
+			table#quote 
+			{
+				table-layout:fixed;
+			}
+			table#confirm 
+			{
+				table-layout:fixed;
+			}
+		</style>
+	</head>
+<body>
+	<form>
+	<center><h1><marquee behavior="alternate" scrollamount=16 bgcolor="lightgreen" loop="-1" width="100%"><i><font color="red">Customer Login Page</font></i></marquee></h1></center>
+	<br />
+	<table border="0" id="quote" align="center" width="100%">
+	<tr align="left" valign="middle">
+	<td align="right"><strong>Website Login Details</strong></td>
+	<td><strong><font color='red'>Please enter the login details below</font></strong></td>
+	<td></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Login Username (<font color='red'>*</font>):</td>   
+	<td><input type="text" name="username" maxlength="20" title="Maxinum 20 letters and numbers in total" placeholder="Enter your login username here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkLoginUsername"></span></td>
+	</tr>
+	<tr align="left" valign="middle">
+	<td align="right">Login Password (<font color='red'>*</font>):</td>   
+	<td><input type="password" name="password" maxlength="20" title="Maxinum 20 letters and numbers in total" placeholder="Enter your login password here" style="width: 100%; height: 16px"/></td>
+	<td><span id="checkLoginPassword"></span></td>
+	</tr>
+	</table>
+	<br>
+	<table border="0" id="confirm" align="center" width="50%">
+	<tr align="left" valign="middle">
+	<td align="center"><input type="button" value="Confirm" onclick="logining('customerLogin.php', 'result', username.value, password.value);" style="width: 34%; height: 24px"/></td>
+	<td align="center"><input type="reset" value="Reset" onclick="cleanReuslt();" style="width: 34%; height: 24px"/></td>
+	</tr>
+	</table>
+	</form>	
+	<br />
+	<br />
+	<center>
+	<span id="result">
+		<pre></pre>
+	</span>
+	</center>
+</body>
+</html>
